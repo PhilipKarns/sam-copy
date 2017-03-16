@@ -144,12 +144,13 @@ chatData.orderByChild("time").on("child_added", function(snapshot) {
 // in addition to push, the button should change the lcoation
   // If idNum is 0, then its a disconnect message and displays accordingly
   // If not - its a user chat message
+  ref.removeEventListener("child_added");
   if (snapshot.val().idNum === 0) {
-    $("#display").append("<p class=player" + snapshot.val().idNum + "><span>"
+    $("#display").text("<p class=player" + snapshot.val().idNum + "><span>"
     + snapshot.val().name + "</span>: " + snapshot.val().message + "</p>");
   }
   else {
-    $("#display").append("<p class=player" + snapshot.val().idNum + "><span>"
+    $("#display").text("<p class=player" + snapshot.val().idNum + "><span>"
     + snapshot.val().name + "</span>: " + snapshot.val().message + "</p>");
   }
 
