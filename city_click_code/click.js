@@ -105,21 +105,21 @@ chatData =database.ref("/chat- " + trendNames);
     chatData.push();
 var chatDiv = $("<div id='chat'></div>");
 var chatMessages = $("<div id='messages'></div>");
-var chatBar = $("<div id='bar'></div>");
-var chatInput = $("<div id='input'></div>");
-
-// change this button to chatHide.. with id hide, and make it larger. 
+// var chatBar = $("<div id='bar'></div>");
+// var chatInput = $("<input id='input'></input>");
 // var chatSend = $("<button id='send'></button>");
+ 
+// chatBar.append(chatInput, chatSend);
 
-
-var chatTitle = $("<h3>" + $(this).attr('id') + "</h3>");
-chatDiv.append(chatMessages, chatBar, chatInput, chatTitle, "<hr>");
+var chatTitle = $("<a href= https://www.google.com/webhp?sourceid=chrome-instant&rlz=1C1CHBF_enUS730US730&ion=1&espv=2&ie=UTF-8#q=" + $(this).attr('id') + "&*</a>" + "<h3>"+ $(this).attr('id') + "</h3>");
+chatDiv.append(chatMessages, chatTitle, "<hr>");
 $('#display').append(chatDiv);
 
 
 $("#chat-send").on('click', function(){
   if ($("#chat-input").val() !== "") {
     var message = $("#chat-input").val();
+    console.log(username.displayName);
     chatData.push({
       name: username.displayName,
       message: message,
@@ -146,11 +146,11 @@ chatData.orderByChild("time").on("child_added", function(snapshot) {
   // If not - its a user chat message
   ref.removeEventListener("child_added");
   if (snapshot.val().idNum === 0) {
-    $("#display").text("<p class=player" + snapshot.val().idNum + "><span>"
+    $("#display").append("<p class=player" + snapshot.val().idNum + "><span>"
     + snapshot.val().name + "</span>: " + snapshot.val().message + "</p>");
   }
   else {
-    $("#display").text("<p class=player" + snapshot.val().idNum + "><span>"
+    $("#display").append("<p class=player" + snapshot.val().idNum + "><span>"
     + snapshot.val().name + "</span>: " + snapshot.val().message + "</p>");
   }
 
