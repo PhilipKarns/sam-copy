@@ -11,8 +11,8 @@
 
 
 //function displayTrendInfo() {
-		
-	var settings = {
+    
+  var settings = {
   "async": true,
   "crossDomain": true,
   "dataType": 'jsonp',
@@ -96,7 +96,7 @@ $.ajax(settings).done(function (response) {
 
 // click to open chat room of button's topic name. needs to be edited to not be able to make multiple of the same chat room to the page. 
 $(".button").on("click",function() {
-
+$("#display").empty();
 
 var trendNames = ($(this).attr('id').replace('#', ''));
 console.log(trendNames);
@@ -109,11 +109,11 @@ var chatBar = $("<div id='bar'></div>");
 var chatInput = $("<div id='input'></div>");
 
 // change this button to chatHide.. with id hide, and make it larger. 
-var chatSend = $("<button id='send'></button>");
+// var chatSend = $("<button id='send'></button>");
 
 
 var chatTitle = $("<h3>" + $(this).attr('id') + "</h3>");
-chatDiv.append(chatMessages, chatBar, chatInput, chatSend, chatTitle, "<hr>");
+chatDiv.append(chatMessages, chatBar, chatInput, chatTitle, "<hr>");
 $('#display').append(chatDiv);
 
 
@@ -204,4 +204,3 @@ $("#chat-input").keypress(function(e) {
 
 
 });
-
